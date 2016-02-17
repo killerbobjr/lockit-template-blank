@@ -22,7 +22,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "ejs": "^2.3.2"
+    "swig-email-templates": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^0.24.0",

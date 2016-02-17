@@ -1,26 +1,19 @@
-'use strict';
+var	EmailTemplates = require('swig-email-templates'),
+	templates = new EmailTemplates();
 
-var readFile = require('fs').readFile;
-var join = require('path').join;
-var render = require('ejs').render;
+module.exports = function(options, next)
+{
+	if(!options.template)
+	{
+		options.path = __dirname + '/';
+		options.template = 'index.html';
+	}
 
-module.exports = function(title, content, cb) {
-
-  // read html file
-  readFile(join(__dirname, 'index.html'), 'utf8', function(err, data) {
-    if (err) {return cb(err); }
-
-    // set local variables
-    var locals = {
-      title: title,
-      content: content
-    };
-
-    // create html
-    var html = render(data, locals);
-
-    // return modified html content
-    cb(null, html);
-  });
-
+	templates.render(options.path + options.template, options, function(err, html, text)
+		{
+			if(err)
+				return next(err);
+			else
+				next(undefined, html, text);
+		});
 };
