@@ -22,12 +22,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "swig-email-templates": "^2.0.0"
+    "swig-email-templates": "^4.0.0"
   },
   "devDependencies": {
-    "eslint": "^0.24.0",
-    "grunt": "~0.4.2",
-    "mocha": "^2.2.5",
-    "should": "^7.0.1"
+    "eslint": "^3.18.0",
+    "grunt": "~1.0.1",
+    "mocha": "^3.2.0",
+    "should": "^11.2.1"
   }
 }
